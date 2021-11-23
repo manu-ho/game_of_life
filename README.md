@@ -1,4 +1,4 @@
-# game_of_life
+# Game of Life
 
 Basic implementation of the game of life.
 The Implementation is based on the four rules as stated in wikipedia:
