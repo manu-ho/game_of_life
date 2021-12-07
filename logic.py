@@ -23,7 +23,7 @@ class GameLogic:
         board.set_click_event_handler(self.on_click_handler)
 
     def reset_game(self):
-        self.state = GameLogic.get_start_state(self.size)
+        self.state = self.get_start_state(self.size)
         self.cnt_generation = 0
 
     def start_game(self):
@@ -37,7 +37,8 @@ class GameLogic:
         return s
 
     def refresh_board(self):
-        self.board.draw(self.state, generation=self.cnt_generation)
+        # self.board.draw(self.state, generation=self.cnt_generation)
+        self.board.update(self.state, generation=self.cnt_generation)
 
     def on_click_handler(self, event, data=None):
         if event == EVENT_CELL_CLICK:
@@ -58,6 +59,12 @@ class GameLogic:
         kernel = np.ones((3,3), dtype=np.int8)
         kernel[1,1] = 0
         conv = sig.convolve2d(self.state, kernel, mode='same', boundary='fill', fillvalue=0)
+
+        '''
+        1 1 1
+        1 0 1
+        1 1 1
+        '''
 
         # Compute next generation - implementation based on rules from wikipedia rules
         # https://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens
