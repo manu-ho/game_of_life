@@ -123,9 +123,7 @@ class Board:
         
         # Update only those cells, that have changed since last state
         diff = np.subtract(state, self.last_state)
-        print('diff = {}'.format(diff))
         changed_idx = list(zip(*diff.nonzero()))
-        print('Cells at {} changed.'.format(changed_idx))
         for xy in changed_idx:
             self.patches[xy[0] * state.shape[0] + xy[1]].set_facecolor(UI_BOARD_CELL_COLORS[state[xy[0], xy[1]]])
 

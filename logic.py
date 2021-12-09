@@ -37,7 +37,6 @@ class GameLogic:
         return s
 
     def refresh_board(self):
-        # self.board.draw(self.state, generation=self.cnt_generation)
         self.board.update(self.state, generation=self.cnt_generation)
 
     def on_click_handler(self, event, data=None):
