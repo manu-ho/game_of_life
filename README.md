@@ -7,3 +7,9 @@ or (english version)
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 The implementation uses matplotlib for visualization and 2D convolution for the realization of the rules.
+
+Play game by running
+```
+python3 gol.py
+```
+.
